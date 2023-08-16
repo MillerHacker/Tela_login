@@ -407,7 +407,7 @@ input, select{
 }
 
 
-#JS_tela_login
+# JS_tela_login
 
 class Dados{
     _email;
@@ -470,7 +470,7 @@ iniciar.acao();
 
 
 
-#JS_tela_cadastrar
+# JS_tela_cadastrar
 
 class Cadastrar{
     _nome;
