@@ -405,3 +405,194 @@ input, select{
     border: solid 2px black;
     color: black;
 }
+
+
+#JS_tela_login
+
+class Dados{
+    _email;
+    _senha;
+
+
+
+    constructor(){
+        this._email = "";
+        this._senha = "";
+    }
+
+
+
+
+
+    acao(){
+
+        const vEmail = document.querySelector("#email");
+        const vSenha = document.querySelector("#senha");
+        const titulo = document.querySelector("#titulo");
+        const btn = document.querySelector("#btn");
+
+
+        btn.addEventListener("click", function(event){
+            event.preventDefault();
+
+            
+
+        this._email=vEmail.value;
+        this._senha=vSenha.value;
+
+            if(this._email === "" || this._senha === ""){
+                vEmail.style.borderColor="red";
+                vSenha.style.borderColor="red";
+                window.alert("Preencha todos os campos!");
+
+            }else if(this._email === "miller151988@gmail.com" && this._senha === "mrn151988"){
+                titulo.style.color="green";
+                titulo.innerHTML="Login efetuado com sucesso";
+            }
+            else{
+                alert("Email ou senha incorretos!");
+            }
+
+            
+        })
+
+
+
+    }
+
+
+}
+
+
+iniciar = new Dados();
+iniciar.acao();
+
+
+
+
+#JS_tela_cadastrar
+
+class Cadastrar{
+    _nome;
+    _sobNome;
+    _celular;
+    _data;
+    _sexo;
+    _email;
+    _senha;
+    _conSenha;
+    _estado;
+    _cidade;
+    _cep;
+    _endereco;
+    _num;
+    _complemento;
+
+
+    constructor(){
+        this._nome="";
+        this._sobNome="";
+        this._celular="";
+        this._data="";
+        this._sexo="";
+        this._email="";
+        this._senha="";
+        this._conSenha;
+        this._estado="";
+        this._cidade="";
+        this._cep="";
+        this._endereco="";
+        this._num="";
+        this._complemento="";
+    
+    }
+
+
+
+    fazerCadastro(){
+        
+
+        const nome = document.getElementById("nome");
+        const sobNome = document.getElementById("sob_nome");
+        const celular = document.getElementById("celular");
+        const data = document.getElementById("data");
+        const sexo = document.getElementsByName("opcoes");
+        const email = document.getElementById("email");
+        const senha = document.getElementById("senha");
+        const conSenha = document.getElementById("con_senha");
+        const estado = document.getElementById("estados");
+        const cidade = document.getElementById("cidades");
+        const cep = document.getElementById("cep");
+        const endereco = document.getElementById("end");
+        const num = document.getElementById("num");
+        const complemento = document.getElementById("comp");
+        const btn = document.getElementById("botao");
+
+        
+
+        btn.addEventListener("click", function(event){
+            event.preventDefault();
+            
+            this._nome=nome.value;
+            this._sobNome=sobNome.value;
+            this._celular=celular.value;
+            this._data=data.value;
+            this._email=email.value;
+            this._senha=senha.value;
+            this._conSenha=conSenha.value;
+            this._estado=estado.value;
+            this._cidade=cidade.value;
+            this._cep=cep.value;
+            this._endereco=endereco.value;
+            this._num=num.value;
+            this._complemento=complemento.value;
+
+            for(let num=0; num<sexo.length; num++){
+                if(sexo[num].checked){
+                    this._sexo=sexo[num].value;
+                }
+            }
+
+            if(senha.value != conSenha.value){
+                alert("senhas diferentes, digite novamente");
+            }
+
+            var elementos = [ this._nome, this._sobNome, this._celular, this._data, 
+                this._sexo, this._email, this._senha, this._conSenha, this._estado, 
+                this._cidade, this._cep, this._endereco, this._num, this._complemento];
+
+            for(let i=0; i<elementos.length; i++){
+                if(elementos[i] == "" || elementos[i] == undefined){
+                    alert("Preencha todos os campos!!");
+                    break;
+                }
+            }
+
+        var vet = [nome, sobNome, celular, data, email, senha,
+        conSenha, estado, cidade, cep, endereco, num, complemento];
+
+            for(let j=0; j<elementos.length; j++){
+                if(elementos[j] == "" || elementos[j] == undefined){
+                    for(let a=0; a<vet.length; a++){
+                        vet[a].style.borderColor="red";
+                    }
+                }
+            }
+    
+    
+            console.log(elementos);
+            
+        });
+
+
+        
+
+    }
+
+
+
+
+}
+
+cadastro = new Cadastrar();
+cadastro.fazerCadastro();
